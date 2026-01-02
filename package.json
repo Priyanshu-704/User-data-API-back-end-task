@@ -1,0 +1,42 @@
+{
+  "name": "express-user-api",
+  "version": "1.0.0",
+  "description": "Express.js User API with Advanced Caching, Rate Limiting, and Asynchronous Processing",
+  "main": "src/server.ts",
+  "scripts": {
+   "dev": "nodemon --exec tsx src/server.ts",
+    "build": "tsc",
+    "start": "nodemon --exec tsx src/server.ts",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "express",
+    "typescript",
+    "cache",
+    "rate-limiting",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.19",
+    "@types/dotenv": "^8.2.3",
+    "@types/express": "^5.0.6",
+    "@types/helmet": "^4.0.0",
+    "@types/node": "^25.0.3",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
