@@ -1,0 +1,72 @@
+Expert-Level Express.js Assignment: User Data API with Advanced Caching, Rate 
+Limiting, and Asynchronous Processing 
+Objective: 
+Develop a highly efficient Express.js API that serves user data with advanced 
+caching strategies, rate limiting, and asynchronous processing to handle high 
+traffic and improve performance. 
+Requirements: 
+1. Setup an Express.js Server: 
+● Initialize a new Express.js application with appropriate middleware (e.g., body-parser, 
+cors). 
+● Use TypeScript for type safety and better maintainability. 
+2. Advanced In-Memory Cache: 
+● Implement an in-memory cache using a Least Recently Used (LRU) cache strategy. 
+● The cache should store user data for 60 seconds before invalidating it. 
+● Maintain cache statistics, including cache hits, misses, and current cache size. 
+● Implement a mechanism to automatically clear stale cache entries using a background 
+task. 
+3. Define API Endpoints: 
+● GET /users/:id: 
+● Retrieve user data by ID. 
+● If the data is available in the cache, return it immediately. 
+● If not, simulate a database call by returning a mock user object after a delay of 
+200ms. The mock user object should contain at least id, name, and email. 
+● If the requested user ID does not exist, return a 404 status code with a 
+meaningful error message. 
+4. Performance Optimization: 
+● Ensure that the cache is updated with the new user data only if the data is not already 
+cached. 
+● Implement a mechanism to handle concurrent requests for the same user ID efficiently. If 
+one request is fetching data, subsequent requests for the same ID should wait for the first 
+request to complete and then return the cached result. 
+5. Rate Limiting: 
+● Implement a sophisticated rate-limiting strategy that allows for burst traffic handling. Allow 
+a maximum of 10 requests per minute, with a burst capacity of 5 requests in a 10-second 
+window. 
+● Return a 429 status code with a meaningful message when the rate limit is exceeded. 
+6. Asynchronous Processing: 
+● Introduce an asynchronous processing mechanism for simulating the database call. Use 
+a queue (e.g., Bull or a simple array-based queue) to manage requests that need to fetch 
+data from the "database". 
+● Ensure that the API can handle multiple simultaneous requests without blocking. 
+7. Bonus Features: 
+● Manual Cache Management: Implement a DELETE /cache endpoint to clear the entire 
+cache. 
+● Cache Status: Implement a GET /cache-status endpoint that returns the current cache 
+size, number of cache hits, misses, and the average response time for requests. 
+● User Creation Endpoint: Implement a POST /users endpoint to simulate creating a new 
+user. The new user should be added to the mock data and subsequently cached. 
+8. Testing: 
+● Use Postman or any API testing tool to test the endpoints. 
+● Measure response times for the first request and subsequent requests to observe the 
+caching effect. 
+● Simulate high traffic to test the rate limiting and asynchronous processing functionality. 
+Mock User Data: 
+javascript 
+const mockUsers = { 
+1: { id: 1, name: "John Doe", email: "john@example.com" }, 
+2: { id: 2, name: "Jane Smith", email: "jane@example.com" }, 
+3: { id: 3, name: "Alice Johnson", email: "alice@example.com" } 
+}; 
+Submission: 
+● Submit your code in a GitHub repository. 
+● Include a README file with instructions on how to run your application and test the API. 
+● Provide a brief explanation of your caching strategy, rate limiting implementation, and how you 
+handled asynchronous processing. 
+Evaluation Criteria: 
+● Code quality, structure, and adherence to TypeScript best practices 
+● Correctness and efficiency of the caching, rate limiting, and asynchronous processing 
+implementations 
+● Performance optimizations and handling of concurrent requests 
+● Error handling and meaningful responses 
+● Clarity and completeness of documentation 
